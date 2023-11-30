@@ -8,7 +8,7 @@
   },
   "license": "Apache-2.0",
   "bin": {
-    "gif": "dist/index.js"
+    "@db-ui/gif": "dist/index.js"
   },
   "main": "index.js",
   "files": [
@@ -21,7 +21,7 @@
     "build:03_icon_fonts_templates": "cpr src/generate-icon-fonts/templates dist/templates -o",
     "lint": "eslint src --ext ts",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {}\"",
-    "test": "jest"
+    "test": "jest --detectOpenHandles --runInBand --forceExit"
   },
   "dependencies": {
     "commander": "^11.1.0",
