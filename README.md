@@ -1,6 +1,6 @@
 # GIF - Generate Icon Fonts
 
-If you have custom icons and want to use them for [foundations](https://www.npmjs.com/package/@db-ui/foundations) and/or in [components]((https://www.npmjs.com/package/@db-ui/components), you need to generate a `woff2` file.
+If you have custom icons and want to use them for [foundations](https://www.npmjs.com/package/@db-ui/foundations) and/or in [components](https://www.npmjs.com/package/@db-ui/components), you need to generate a `woff2` file.
 
 ## Generate
 
