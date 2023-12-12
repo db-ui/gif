@@ -13,3 +13,10 @@ updates:
       interval: "daily"
     pull-request-branch-name:
       separator: "-"
+    groups:
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint*"
+        update-types:
+          - "minor"
+          - "patch"
