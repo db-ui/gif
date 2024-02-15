@@ -8,9 +8,6 @@ jobs:
   init:
     uses: ./.github/workflows/00-init.yml
 
-  scan-secrets:
-    uses: ./.github/workflows/00-scan-secrets.yml
-
   build:
     uses: ./.github/workflows/01-build.yml
     needs: [init]

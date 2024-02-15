@@ -11,6 +11,7 @@ jobs:
     uses: ./.github/workflows/00-init.yml
 
   scan-secrets:
+    if: github.event.pull_request == null || github.event.pull_request.head.repo.owner.login == 'db-ui'
     uses: ./.github/workflows/00-scan-secrets.yml
 
   build:
