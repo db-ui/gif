@@ -20,7 +20,7 @@
     "build:02_icon_fonts_styles": "cpr src/generate-icon-fonts/styles dist/styles -o",
     "build:03_icon_fonts_templates": "cpr src/generate-icon-fonts/templates dist/templates -o",
     "lint": "eslint src --ext ts",
-    "prepare": "node -e \"try { require('husky').install() } catch (e) {}\"",
+    "prepare": "husky",
     "test": "jest --detectOpenHandles --runInBand --forceExit"
   },
   "dependencies": {
