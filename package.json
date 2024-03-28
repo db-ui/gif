@@ -34,7 +34,7 @@
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.2",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
+    "@typescript-eslint/parser": "^7.4.0",
     "cpr": "3.0.1",
     "esbuild-runner": "^2.2.2",
     "eslint": "^8.50.0",
