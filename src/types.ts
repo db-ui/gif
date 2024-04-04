@@ -15,6 +15,7 @@ export type OptionsType = {
 	variants: string[];
 	debug?: boolean;
 	dryRun?: boolean;
+	overwriteSources?: boolean;
 	prefix?: string;
 	withSizes?: boolean;
 	ignoreGlobs?: string[];
