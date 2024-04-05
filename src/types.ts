@@ -1,3 +1,6 @@
+import { Config } from "svgo";
+import { SvgIcons2FontOptions } from "svgicons2svgfont";
+
 export type ProgrammOptionsType = {
   name: string;
   short?: string;
@@ -19,4 +22,18 @@ export type OptionsType = {
   prefix?: string;
   withSizes?: boolean;
   ignoreGlobs?: string[];
+  traceResolution?: string;
+  /**
+   * https://github.com/svg/svgo#configuration
+   */
+  svgoOptions?: Config;
+  /**
+   * Creates svg react components
+   */
+  outSVGReact?: boolean;
+
+  /**
+   * This is the setting for [svgicons2svgfont](https://github.com/nfroidure/svgicons2svgfont/tree/dd713bea4f97afa59f7dba6a21ff7f22db565bcf#api)
+   */
+  svgicons2svgfont?: SvgIcons2FontOptions;
 };
