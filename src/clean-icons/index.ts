@@ -7,6 +7,7 @@ import { error } from "console";
 const cleanIcons = async (
   src: string,
   ignoreGlobs?: string[],
+  traceResolution?: string,
   debug?: boolean,
 ) => {
   const paths = `${src}/**/*.svg`;
@@ -23,7 +24,10 @@ const cleanIcons = async (
   const promises: Promise<unknown>[] = globPaths.map(async (path) => {
     try {
       // eslint-disable-next-line no-await-in-loop,new-cap
-      return await SVGFixer(path, path, { showProgressBar: debug }).fix();
+      return await SVGFixer(path, path, {
+        showProgressBar: debug,
+        traceResolution: Number(traceResolution || "600"),
+      }).fix();
     } catch (catchError) {
       error(path, catchError);
       return catchError;

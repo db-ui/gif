@@ -21,14 +21,12 @@ describe("simple", () => {
       src: "./test/simple",
       ignoreGlobs: ["**/ignore/**", "**/tmp/**"],
       cleanIgnoreVariants: [],
-      variants: [],
+      variants: []
     });
 
     const infoJson = JSON.parse(
       fs.readFileSync("./test/simple/fonts/all/info.json").toString("utf-8"),
     );
-    expect(infoJson.db_logo.unicode).toBe(
-      "&#100;&amp;#98;&amp;#95;&amp;#108;&amp;#111;&amp;#103;&amp;#111;",
-    );
+    expect(infoJson.db.unicode).toBe("&#100;&amp;#98;");
   });
 });
