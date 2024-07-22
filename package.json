@@ -27,7 +27,7 @@
     "commander": "^12.0.0",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
-    "oslllo-svg-fixer": "^4.0.1",
+    "oslllo-svg-fixer": "^5.0.0",
     "svgtofont": "^4.2.0"
   },
   "devDependencies": {
