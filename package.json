@@ -28,7 +28,7 @@
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
     "oslllo-svg-fixer": "^5.0.0",
-    "svgtofont": "^4.2.0"
+    "svgtofont": "^6.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
