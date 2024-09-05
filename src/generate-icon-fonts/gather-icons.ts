@@ -238,7 +238,7 @@ const gatherIcons = (
     }
   }
 
-  return undefined;
+  return globPaths;
 };
 
 export default gatherIcons;

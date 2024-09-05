@@ -47,22 +47,17 @@ export const gifOptions: ProgrammOptionsType[] = [
     description: "Extra logging",
     defaultValue: false,
   },
-    // TODO: This is buggy we should fix it by making a PR to https://github.com/jaywcjlove/svgtofont
-/*  {
+  {
+    name: "overwriteSources",
+    short: "ows",
+    description: "Overwrite all svgs inside src directory",
+    defaultValue: false,
+  },
+  // TODO: This is buggy we should fix it by making a PR to https://github.com/jaywcjlove/svgtofont
+  /*  {
     name: "outSVGReact",
     description: "Creates react svg components",
     short: "react",
     defaultValue: false,
   },*/
-];
-
-export const fileEndingsToDelete = [
-  "eot",
-  "less",
-  "module.less",
-  "styl",
-  "svg",
-  "symbol.svg",
-  "ttf",
-  "woff",
 ];
