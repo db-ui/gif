@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@jest/globals";
+import { describe, expect, test } from "vitest";
 import generateIconFonts from "../../src/generate-icon-fonts";
 import fs from "fs";
 

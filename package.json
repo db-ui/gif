@@ -2,6 +2,7 @@
   "name": "@db-ui/gif",
   "version": "0.0.0",
   "description": "'gif' or 'generate icon fonts' uses svgs to generate woff2 files",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/db-ui/mono.git"
@@ -21,7 +22,7 @@
     "build:03_icon_fonts_templates": "cpr src/generate-icon-fonts/templates dist/templates -o",
     "lint": "eslint src --ext ts",
     "prepare": "husky",
-    "test": "jest --detectOpenHandles --runInBand --forceExit"
+    "test": "vitest run --no-file-parallelism"
   },
   "dependencies": {
     "commander": "^12.0.0",
@@ -32,7 +33,6 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/jest": "^29.5.5",
     "@types/node": "^22.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
@@ -40,11 +40,11 @@
     "esbuild-runner": "^2.2.2",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
-    "jest": "^29.7.0",
     "npm-run-all": "4.1.5",
     "prettier": "^3.0.3",
-    "ts-jest": "^29.1.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "vite": "^5.4.3",
+    "vitest": "^2.0.5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
