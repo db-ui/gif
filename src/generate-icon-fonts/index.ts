@@ -2,7 +2,6 @@
 
 import FSE from "fs-extra";
 
-import { fileEndingsToDelete } from "./data";
 import svgToFont from "./svg-to-font";
 import cleanIcons from "../clean-icons";
 import { OptionsType } from "../types";
@@ -18,7 +17,6 @@ const debugLog = (debug: boolean, message: string) => {
 const generateIconFonts = async (values: OptionsType): Promise<unknown> => {
   const {
     src,
-    fontName,
     dryRun,
     cleanIgnoreVariants,
     debug = false,
@@ -44,7 +42,7 @@ const generateIconFonts = async (values: OptionsType): Promise<unknown> => {
     }
 
     debugLog(debug, "---Start gathering icon---");
-    gatherIcons(temporaryDirectory, values);
+    const iconPaths = gatherIcons(temporaryDirectory, values);
 
     debugLog(debug, "---Start cleaning icon---");
     await cleanIcons(
@@ -61,16 +59,23 @@ const generateIconFonts = async (values: OptionsType): Promise<unknown> => {
       const subTemporaryDir = `${temporaryDirectory}/${directory}`;
       debugLog(debug, `svgToFont for ${subTemporaryDir}`);
       await svgToFont(subTemporaryDir, subDist, values);
-      for (const ending of fileEndingsToDelete) {
-        FSE.removeSync(`${subDist}/${fontName}.${ending}`);
-      }
 
       FSE.removeSync(`${subDist}/symbol.html`);
       FSE.removeSync(`${subDist}/unicode.html`);
     }
 
-    if (overwriteSources) {
-      FSE.copySync(`${temporaryDirectory}/all`, `${src}`, { overwrite: true });
+    if (overwriteSources && iconPaths) {
+      const tempAllDir = `${temporaryDirectory}/all`;
+      iconPaths.forEach((svgPath) => {
+        const paths = svgPath.split("/");
+        const filename: string = paths.at(-1) || "";
+        const tmpFile = `${tempAllDir}/${filename}`;
+        if (FSE.existsSync(`${tempAllDir}/${filename}`)) {
+          FSE.copySync(tmpFile, svgPath, {
+            overwrite: true,
+          });
+        }
+      });
     }
 
     if (!debug) {
