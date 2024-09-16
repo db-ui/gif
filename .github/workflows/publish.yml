@@ -27,3 +27,5 @@ jobs:
     uses: ./.github/workflows/02-publish.yml
     needs: [build, lint, test]
     secrets: inherit
+    permissions:
+      id-token: write
