@@ -1,7 +1,8 @@
+import { fileURLToPath } from 'node:url';
 import path from "node:path";
 
 import svgtofont from "svgtofont";
-import { OptionsType } from "../types";
+import { OptionsType } from "../types.js";
 import { log } from "console";
 
 const svgToFont = async (
@@ -11,7 +12,7 @@ const svgToFont = async (
 ) => {
   const { fontName, debug, svgoOptions, outSVGReact, svgicons2svgfont } =
     options;
-  const fileName = __filename;
+  const fileName = fileURLToPath(import.meta.url);
   let lastSlashIndex = fileName.lastIndexOf("\\");
   if (lastSlashIndex === -1) {
     lastSlashIndex = fileName.lastIndexOf("/");
