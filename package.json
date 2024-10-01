@@ -9,7 +9,7 @@
   },
   "license": "Apache-2.0",
   "bin": {
-    "@db-ui/gif": "dist/index.js"
+    "@db-ui/gif": "dist/index.cjs"
   },
   "main": "index.js",
   "files": [
@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "npm-run-all -p build:*",
-    "build:01_icon_fonts_common": "esbuild src/generate-icon-fonts/cli.ts --bundle --outfile=dist/index.js --platform=node --packages=external",
+    "build:01_icon_fonts_common": "esbuild src/generate-icon-fonts/cli.ts --bundle --outfile=dist/index.cjs --platform=node --packages=external",
     "build:02_icon_fonts_styles": "cpr src/generate-icon-fonts/styles dist/styles -o",
     "build:03_icon_fonts_templates": "cpr src/generate-icon-fonts/templates dist/templates -o",
     "lint": "eslint src --ext ts",
