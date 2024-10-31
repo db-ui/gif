@@ -29,6 +29,9 @@ In your app you need to include some of the generated files:
 ```
 
 > **_NOTE:_** In case you put the files in a separate folder of your `public` directory be aware to adopt the path in your generated `font-face.css` file: `url("/{YOUR_FOLDER}}/my-name.woff2?t=1698750286189") format("woff2");`
+> > **_NOTE:_** The source files need to provide the following attributes: width, height and viewbox to generate the icon font correctly
+
+Now you can use your icons with your `font-family: my-name`, e.g.:
 
 Now you can use your icons with your `font-family: my-name`, e.g.:
 
