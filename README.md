@@ -33,8 +33,6 @@ In your app you need to include some of the generated files:
 
 Now you can use your icons with your `font-family: my-name`, e.g.:
 
-Now you can use your icons with your `font-family: my-name`, e.g.:
-
 ```html
 <!--example.html-->
 <i class="my-name">icon_file_name</i>
