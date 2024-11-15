@@ -41,7 +41,7 @@ const svgToFont = async (
       },
       website: {
         index: "font-class",
-        template: path.resolve(generateIconFontsDir, "templates/template.ejs"),
+        template: path.resolve(generateIconFontsDir, "templates/index.njk"),
         links: [{ title: "", url: "" }],
       },
       styleTemplates: path.resolve(generateIconFontsDir, "styles"),
