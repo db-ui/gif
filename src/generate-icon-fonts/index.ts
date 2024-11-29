@@ -22,6 +22,7 @@ const generateIconFonts = async (values: OptionsType): Promise<unknown> => {
     debug = false,
     overwriteSources = false,
     traceResolution = "600",
+    skipClean = false,
   } = values;
   const dist = `${src}/fonts`;
   const temporaryDirectory = `${src}/tmp`;
@@ -44,13 +45,17 @@ const generateIconFonts = async (values: OptionsType): Promise<unknown> => {
     debugLog(debug, "---Start gathering icon---");
     const iconPaths = gatherIcons(temporaryDirectory, values);
 
-    debugLog(debug, "---Start cleaning icon---");
-    await cleanIcons(
-      `${temporaryDirectory}/*`,
-      ignoreVariants,
-      traceResolution,
-      debug,
-    );
+    if (skipClean) {
+      debugLog(debug, "---Skip cleaning icon---");
+    } else {
+      debugLog(debug, "---Start cleaning icon---");
+      await cleanIcons(
+        `${temporaryDirectory}/*`,
+        ignoreVariants,
+        traceResolution,
+        debug,
+      );
+    }
 
     debugLog(debug, "---Start svg to font ---");
     const allTemporaryDirectories = FSE.readdirSync(temporaryDirectory);

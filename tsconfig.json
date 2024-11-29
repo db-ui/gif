@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "NodeNext",
+    "module": "ESNext",
     "declaration": true,
     "outDir": "dist",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 
+    "skipLibCheck": true,
     "strict": true /* Enable all strict type-checking options. */,
 
     /* Additional Checks */

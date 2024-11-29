@@ -1,7 +1,6 @@
-import { globSync } from "glob";
+import { GlobOptionsWithFileTypesFalse, globSync } from "glob";
 
 import SVGFixer from "oslllo-svg-fixer";
-import { GlobOptionsWithFileTypesFalse } from "glob/dist/commonjs/glob";
 import { error } from "console";
 
 const cleanIcons = async (
