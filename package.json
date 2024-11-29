@@ -20,6 +20,7 @@
     "build:01_icon_fonts_common": "esbuild src/generate-icon-fonts/cli.ts --bundle --outfile=dist/index.mjs --platform=node --packages=external --format=esm",
     "build:02_icon_fonts_styles": "cpr src/generate-icon-fonts/styles dist/styles -o",
     "build:03_icon_fonts_templates": "cpr src/generate-icon-fonts/templates dist/templates -o",
+    "build:04_rest": "tsc",
     "lint": "eslint src --ext ts",
     "prepare": "husky",
     "test": "vitest run --no-file-parallelism"
