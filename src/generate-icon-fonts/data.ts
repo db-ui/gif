@@ -20,6 +20,12 @@ export const gifOptions: ProgrammOptionsType[] = [
     defaultValue: [],
   },
   {
+    name: "skipClean",
+    description: "Skip cleaning process",
+    defaultValue: false,
+    short: "sc",
+  },
+  {
     name: "withSizes",
     description: "Splits the font into different sizes",
   },

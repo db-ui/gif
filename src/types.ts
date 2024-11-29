@@ -1,5 +1,5 @@
 import { Config } from "svgo";
-import { SvgIcons2FontOptions } from "svgicons2svgfont";
+import { SVGIcons2SVGFontStreamOptions } from "svgicons2svgfont";
 
 export type ProgrammOptionsType = {
   name: string;
@@ -16,6 +16,7 @@ export type OptionsType = {
   src: string;
   cleanIgnoreVariants: string[];
   variants: string[];
+  skipClean?: boolean;
   debug?: boolean;
   dryRun?: boolean;
   overwriteSources?: boolean;
@@ -35,5 +36,5 @@ export type OptionsType = {
   /**
    * This is the setting for [svgicons2svgfont](https://github.com/nfroidure/svgicons2svgfont/tree/dd713bea4f97afa59f7dba6a21ff7f22db565bcf#api)
    */
-  svgicons2svgfont?: SvgIcons2FontOptions;
+  svgicons2svgfont?: SVGIcons2SVGFontStreamOptions;
 };
