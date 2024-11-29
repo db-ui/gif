@@ -1,4 +1,4 @@
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 import svgtofont from "svgtofont";
@@ -18,7 +18,14 @@ const svgToFont = async (
     lastSlashIndex = fileName.lastIndexOf("/");
   }
 
-  const generateIconFontsDir = fileName.slice(0, Math.max(0, lastSlashIndex));
+  let generateIconFontsDir = fileName.slice(0, Math.max(0, lastSlashIndex));
+
+  if (generateIconFontsDir.endsWith("generate-icon-fonts")) {
+    generateIconFontsDir = generateIconFontsDir.replace(
+      "generate-icon-fonts",
+      "",
+    );
+  }
 
   try {
     return svgtofont({
