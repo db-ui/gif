@@ -4,10 +4,6 @@ name: Fonttools test
 on:
   workflow_call:
 
-concurrency:
-  group: ${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
 jobs:
   fonttools:
     name: Fonttools
