@@ -1,0 +1,23 @@
+---
+name: Fonttools test
+
+on:
+  workflow_call:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  init:
+    name: Init
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⏬ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⏬ Install fonttools
+        run: |
+          pip3 install fonttools
+          pip3 install brotli
+          fonttools --help
