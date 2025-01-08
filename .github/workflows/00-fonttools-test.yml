@@ -9,8 +9,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  init:
-    name: Init
+  fonttools:
+    name: Fonttools
     runs-on: ubuntu-latest
     steps:
       - name: ⏬ Checkout repo
