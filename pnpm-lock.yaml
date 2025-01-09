@@ -14,6 +14,9 @@ importers:
       commander:
         specifier: ^12.0.0
         version: 12.1.0
+      cosmiconfig:
+        specifier: ^9.0.0
+        version: 9.0.0(typescript@5.7.2)
       esbuild:
         specifier: 0.24.0
         version: 0.24.0
@@ -98,6 +101,14 @@ importers:
         version: 2.1.8(@types/node@22.10.5)
 
 packages:
+
+  '@babel/code-frame@7.26.2':
+    resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-validator-identifier@7.25.9':
+    resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
+    engines: {node: '>=6.9.0'}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1418,6 +1429,15 @@ packages:
     resolution: {integrity: sha512-lOETlkIeYSJWcbbcvjRKGxVMXJR+8+OQb/mTPbA4ObPMytYIsUbuOE0Jzy60hjARYszq1id0j8KgVhC+WGZVTg==}
     engines: {node: '>=12'}
 
+  cosmiconfig@9.0.0:
+    resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      typescript: '>=4.9.5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   cpr@3.0.1:
     resolution: {integrity: sha512-Xch4PXQ/KC8lJ+KfJ9JI6eG/nmppLrPPWg5Q+vh65Qr9EjuJEubxh/H/Le1TmCZ7+Xv7iJuNRqapyOFZB+wsxA==}
     hasBin: true
@@ -1516,6 +1536,9 @@ packages:
 
   err-code@2.0.3:
     resolution: {integrity: sha512-2bmlRpNKBxT/CRmPOlyISQpNj+qSeYvcym/uT0Jx2bMOlKLtSy1ZmLuVxSEKKyor/N5yhvp/ZiG1oE3DEYMSFA==}
+
+  error-ex@1.3.2:
+    resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
 
   es-module-lexer@1.6.0:
     resolution: {integrity: sha512-qqnD1yMU6tk/jnaMosogGySTZP8YtUgAffA9nMN+E/rjxcfRQ6IEk7IiozUjgxKoFHBGjTLnrHB/YC45r/59EQ==}
@@ -1819,6 +1842,9 @@ packages:
     resolution: {integrity: sha512-zHtQzGojZXTwZTHQqra+ETKd4Sn3vgi7uBmlPoXVWZqYvuKmtI0l/VZTjqGmJY9x88GGOaZ9+G9ES8hC4T4X8g==}
     engines: {node: '>= 12'}
 
+  is-arrayish@0.2.1:
+    resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+
   is-extglob@2.1.1:
     resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
     engines: {node: '>=0.10.0'}
@@ -1872,6 +1898,9 @@ packages:
   jpeg-js@0.4.4:
     resolution: {integrity: sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==}
 
+  js-tokens@4.0.0:
+    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
@@ -1881,6 +1910,9 @@ packages:
 
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
+
+  json-parse-even-better-errors@2.3.1:
+    resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
 
   json-parse-even-better-errors@4.0.0:
     resolution: {integrity: sha512-lR4MXjGNgkJc7tkQ97kb2nuEMnNCyU//XYVH0MKTGcXEiSudQ5MKGKen3C5QubYy0vmq+JGitUg92uuywGEwIA==}
@@ -2174,6 +2206,10 @@ packages:
 
   parse-headers@2.0.5:
     resolution: {integrity: sha512-ft3iAoLOB/MlwbNXgzy43SWGP6sQki2jQvAyBg/zDFAgr9bfNWZIUj42Kw2eJIl8kEi4PbgE6U1Zau/HwI75HA==}
+
+  parse-json@5.2.0:
+    resolution: {integrity: sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==}
+    engines: {node: '>=8'}
 
   parse5-htmlparser2-tree-adapter@7.1.0:
     resolution: {integrity: sha512-ruw5xyKs6lrpo9x9rCZqZZnIUntICjQAd0Wsmp396Ul9lN/h+ifgVV1x1gZHi8euej6wTfpqX8j+BFQxF0NS/g==}
@@ -2818,6 +2854,14 @@ packages:
     engines: {node: '>=18'}
 
 snapshots:
+
+  '@babel/code-frame@7.26.2':
+    dependencies:
+      '@babel/helper-validator-identifier': 7.25.9
+      js-tokens: 4.0.0
+      picocolors: 1.1.1
+
+  '@babel/helper-validator-identifier@7.25.9': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
@@ -3970,6 +4014,15 @@ snapshots:
 
   convert-hrtime@5.0.0: {}
 
+  cosmiconfig@9.0.0(typescript@5.7.2):
+    dependencies:
+      env-paths: 2.2.1
+      import-fresh: 3.3.0
+      js-yaml: 4.1.0
+      parse-json: 5.2.0
+    optionalDependencies:
+      typescript: 5.7.2
+
   cpr@3.0.1:
     dependencies:
       graceful-fs: 4.2.11
@@ -4066,6 +4119,10 @@ snapshots:
   env-paths@2.2.1: {}
 
   err-code@2.0.3: {}
+
+  error-ex@1.3.2:
+    dependencies:
+      is-arrayish: 0.2.1
 
   es-module-lexer@1.6.0: {}
 
@@ -4470,6 +4527,8 @@ snapshots:
       jsbn: 1.1.0
       sprintf-js: 1.1.3
 
+  is-arrayish@0.2.1: {}
+
   is-extglob@2.1.1: {}
 
   is-fullwidth-code-point@3.0.0: {}
@@ -4521,6 +4580,8 @@ snapshots:
 
   jpeg-js@0.4.4: {}
 
+  js-tokens@4.0.0: {}
+
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
@@ -4528,6 +4589,8 @@ snapshots:
   jsbn@1.1.0: {}
 
   json-buffer@3.0.1: {}
+
+  json-parse-even-better-errors@2.3.1: {}
 
   json-parse-even-better-errors@4.0.0: {}
 
@@ -4848,6 +4911,13 @@ snapshots:
       xml2js: 0.5.0
 
   parse-headers@2.0.5: {}
+
+  parse-json@5.2.0:
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      error-ex: 1.3.2
+      json-parse-even-better-errors: 2.3.1
+      lines-and-columns: 1.2.4
 
   parse5-htmlparser2-tree-adapter@7.1.0:
     dependencies:

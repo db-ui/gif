@@ -28,15 +28,18 @@ export type ProgramOptionsType = {
   };
 };
 
+export const GIF_COMMAND = "generate-icon-fonts";
+export const CI_COMMAND = "clean-icons";
+
 export const commands: Command[] = [
   {
-    name: "generate-icon-fonts",
+    name: GIF_COMMAND,
     description: "Generate icon fonts from SVG files",
     options: gifOptions,
     action: gifAction,
   },
   {
-    name: "clean-icons",
+    name: CI_COMMAND,
     description: "Clean svgs for icon fonts to work",
     options: cleanIconsOptions,
     action: cleanIconAction,

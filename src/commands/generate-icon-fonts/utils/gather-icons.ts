@@ -145,7 +145,8 @@ const gatherIcons = (
 
   // We use this to generate all combinations of variants and sizes as fonts
   const splitSizesArray = withSizes ? ["", ...availableSizes] : [""];
-  const splitVariantsArray = variants.length > 0 ? ["", ...variants] : [""];
+  const splitVariantsArray =
+    variants && variants.length > 0 ? ["", ...variants] : [""];
 
   const globPaths = globSync(paths, { ignore: ignoreGlobs }).map((path) =>
     path.replace(/\\/g, "/"),
@@ -176,7 +177,8 @@ const gatherIcons = (
 
   for (const variant of splitVariantsArray) {
     for (const iconFileName of foundIconFiles.filter(
-      (fileName) => !variants.some((va) => fileName.includes(`_${va}`)),
+      (fileName) =>
+        variants && !variants.some((va) => fileName.includes(`_${va}`)),
     )) {
       const fileName = getVariantFileName(iconFileName, variant);
       initDefaultFile(temporaryDirectory, iconFileName, variant);

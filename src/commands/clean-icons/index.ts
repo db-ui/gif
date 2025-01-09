@@ -5,10 +5,14 @@ import SVGFixer from "oslllo-svg-fixer";
 import { error } from "console";
 import { existsSync } from "node:fs";
 import { mkdirSync } from "fs";
+import { startConfigProcess } from "../../utils/config-process";
+import {CI_COMMAND} from "../../data";
 
 export const cleanIconAction = async (passedConfig: CleanIconsConfigType) => {
-  const config = await startInquirerProcess<CleanIconsConfigType>(
-    passedConfig,
+  let config = await startConfigProcess(CI_COMMAND, passedConfig);
+
+  config = await startInquirerProcess<CleanIconsConfigType>(
+    config,
     cleanIconsOptions,
   );
 

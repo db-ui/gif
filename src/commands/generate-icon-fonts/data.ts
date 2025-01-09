@@ -1,5 +1,7 @@
 import { ProgramOptionsType } from "../../data";
 import {
+  configOption,
+  ConfigType,
   DebugConfigType,
   debugOption,
   DryConfigType,
@@ -13,8 +15,8 @@ import { Config } from "svgo";
 import { SVGIcons2SVGFontStreamOptions } from "svgicons2svgfont";
 
 export type GifConfigType = {
-  fontName: string;
-  variants: string[];
+  fontName?: string;
+  variants?: string[];
   overwriteSources?: boolean;
   prefix?: string;
   withSizes?: boolean;
@@ -34,7 +36,8 @@ export type GifConfigType = {
 } & DryConfigType &
   SrcConfigType &
   IgnoreGlobsConfigType &
-  DebugConfigType;
+  DebugConfigType &
+  ConfigType;
 
 export const gifOptions: ProgramOptionsType[] = [
   {
@@ -82,4 +85,5 @@ export const gifOptions: ProgramOptionsType[] = [
   srcOption,
   ignoreGlobsOption,
   debugOption,
+  configOption,
 ];

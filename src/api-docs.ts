@@ -26,6 +26,9 @@ export const generateApiDocs = (name: string, programDescription: string) => {
     .sort((a, b) => a.name().localeCompare(b.name()))) {
     result += `## ${command.name()}\n\n`;
     result += `${command.description()}\n\n`;
+    result += `> You can use \`${command.name()}.json\` as a config file. 
+  By default it tries to search for the configuration otherwise use a correct path by passing \`--config=./${command.name()}.json\`.\n\n`;
+
     const mTable: string[][] = [
       ["long", "short", "description", "required", "defaultValue"],
     ];
