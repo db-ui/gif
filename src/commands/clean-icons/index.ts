@@ -47,5 +47,5 @@ export const cleanIconAction = async (passedConfig: CleanIconsConfigType) => {
     }
   });
 
-  await Promise.all(promises);
+  return await Promise.all(promises);
 };

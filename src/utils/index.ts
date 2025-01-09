@@ -1,6 +1,6 @@
 import { log } from "console";
 
-export const debugLog = (debug: boolean, message: string) => {
+export const debugLog = (debug: boolean | undefined, message: string) => {
   if (debug) {
     log(message);
   }

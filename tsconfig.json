@@ -1,17 +1,25 @@
 {
-  "include": ["."],
-  "exclude": ["lib.dom.d.ts"],
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "esnext",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "rootDir": ".",
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "dist",
+    "moduleResolution": "Bundler",
     "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-  }
+    "emitDecoratorMetadata": true,
+
+    "skipLibCheck": true,
+    "strict": true /* Enable all strict type-checking options. */,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+    "noImplicitAny": false,
+
+    "lib": ["esnext", "dom"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test/**/*.ts"]
 }

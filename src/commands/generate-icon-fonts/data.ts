@@ -61,6 +61,9 @@ export const gifOptions: ProgramOptionsType[] = [
     name: "fontName",
     description: "The name of your font",
     required: true,
+    inquirer: {
+      input: { message: "What is the name of your font?" },
+    },
   },
   {
     name: "overwriteSources",
