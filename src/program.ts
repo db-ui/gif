@@ -1,42 +1,60 @@
-import { program } from "commander";
-import { OptionsType, ProgrammOptionsType } from "./types";
+import { Command, program } from "commander";
+import { commands } from "./data";
 
-const startProgram = (
-  name: string,
-  description: string,
-  options: ProgrammOptionsType[],
-  action: (_: string, options: { _optionValues: OptionsType }) => void,
-) => {
-  program.name(name).description(description);
+export const getProgram = (name: string, description: string) => {
+  const mProgram = program.name(name).description(description);
 
-  for (const option of options) {
-    const short =
-      (option.short &&
-        (option.short?.startsWith("-") ? option.short : `-${option.short}`)) ||
-      `-${option.name.charAt(0)}`;
-    const long =
-      option.long ||
-      `--${option.name} ${option.array ? "[" : "<"}${option.name}${
-        option.array ? "s...]" : ">"
-      }`;
-    if (option.required) {
-      program.requiredOption(
-        `${short}, ${long}`,
-        option.description || "",
-        option.defaultValue,
-      );
-    } else {
-      program.option(
-        `${short}, ${long}`,
-        option.description || "",
-        option.defaultValue,
-      );
+  for (const command of commands) {
+    const pCommand = new Command(command.name);
+    pCommand.description();
+
+    if (command.description) {
+      pCommand.description(command.description);
     }
+
+    if (command.options) {
+      for (const option of command.options) {
+        const short =
+          (option.short &&
+            (option.short?.startsWith("-")
+              ? option.short
+              : `-${option.short}`)) ||
+          `-${option.name.charAt(0)}`;
+
+        const isBoolean = typeof option.defaultValue == "boolean";
+        const pre = option.array
+          ? "["
+          : isBoolean
+            ? ""
+            : option.required
+              ? "<"
+              : "[";
+        const post = option.array
+          ? "s...]"
+          : isBoolean
+            ? ""
+            : option.required
+              ? ">"
+              : "]";
+
+        const long =
+          option.long || `--${option.name} ${pre}${option.name}${post}`;
+
+        pCommand.option(
+          `${short}, ${long}`,
+          option.description || "",
+          option.defaultValue,
+        );
+      }
+    }
+
+    pCommand.action(command.action);
+    mProgram.addCommand(pCommand);
   }
 
-  program.action(action);
-
-  program.parse();
+  return mProgram;
 };
 
-export default startProgram;
+export const startProgram = (name: string, description: string) => {
+  getProgram(name, description).parse();
+};

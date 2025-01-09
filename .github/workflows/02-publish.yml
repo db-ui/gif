@@ -12,13 +12,14 @@ jobs:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🔄 Init Cache
-        uses: nmerget/npm-cache-action@main
+      - name: 🔄 Init PNPM
+        uses: ./.github/actions/pnpm-init
 
-      - name: ⏬ Download build
-        uses: nmerget/download-gzip-artifact@main
+      - name: ⏬ Download dist
+        uses: actions/download-artifact@v4
         with:
           name: build
+          path: dist
 
       - name: 🔀 Extract tag
         shell: bash

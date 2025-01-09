@@ -16,5 +16,5 @@ jobs:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🔄 Init Cache
-        uses: nmerget/npm-cache-action@main
+      - name: 🔄 Init PNPM
+        uses: ./.github/actions/pnpm-init

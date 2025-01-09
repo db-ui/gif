@@ -1,0 +1,10 @@
+{
+  "name": "test",
+  "scripts": {
+    "cli:help": "tsx ../src/cli.ts --help",
+    "cli:generate-icon-fonts:help": "tsx ../src/cli.ts generate-icon-fonts --help",
+    "cli:generate-icon-fonts": "tsx ../src/cli.ts generate-icon-fonts --dry",
+    "cli:clean-icons:help": "tsx ../src/cli.ts clean-icons --help",
+    "cli:clean-icons": "tsx ../src/cli.ts clean-icons --dry"
+  }
+}
