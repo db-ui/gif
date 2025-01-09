@@ -42,3 +42,4 @@ yarn.lock
 /output/
 /fonts/
 /test/**/fonts/
+**/generated/

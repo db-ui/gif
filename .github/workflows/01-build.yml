@@ -12,14 +12,15 @@ jobs:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🔄 Init Cache
-        uses: nmerget/npm-cache-action@main
+      - name: 🔄 Init PNPM
+        uses: ./.github/actions/pnpm-init
 
-      - name: 🔨 Build
-        run: npm run build
+      - name: 🔨 Build all
+        run: pnpm build
 
-      - name: ⏫ Upload build
-        uses: nmerget/upload-gzip-artifact@main
+      - name: 🆙 Upload dist
+        uses: actions/upload-artifact@v4
         with:
           name: build
           path: dist
+          retention-days: 7
