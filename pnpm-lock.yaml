@@ -32,6 +32,12 @@ importers:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
+      svgicons2svgfont:
+        specifier: 15.0.0
+        version: 15.0.0
+      svgo:
+        specifier: ^3.3.2
+        version: 3.3.2
       svgtofont:
         specifier: ^6.0.0
         version: 6.2.0
