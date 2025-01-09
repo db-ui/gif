@@ -15,8 +15,8 @@ By default, Cosmiconfig will check the current directory for the following:
 
 - a package.json property
 - a JSON or YAML, extensionless "rc file"
-- an "rc file" with the extensions .json, .yaml, .yml, .js, .ts, .mjs, or .cjs
-- any of the above two inside a .config subdirectory
+- an "rc file" with the extensions `.json`, `.yaml`, `.yml`, `.js`, `.ts`, `.mjs`, or `.cjs`
+- any of the above two inside a `.config` subdirectory
 ```
 
 ## More information
