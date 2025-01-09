@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { cleanIconAction } from "../../../src/commands/clean-icons";
+import { cleanIconAction } from "../../../src/commands/clean-icons/action";
 import { readFileSync } from "node:fs";
 
 const out = "./test/clean-icons/simple/generated";

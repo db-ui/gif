@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import fs from "fs";
-import generateIconFonts from "../../../src/commands/generate-icon-fonts/utils";
+import { generateIconFonts } from "../../../src/commands/generate-icon-fonts";
 
 describe("simple", () => {
   test("check if glob works", async () => {

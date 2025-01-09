@@ -1,21 +1,11 @@
-import { CleanIconsConfigType, cleanIconsOptions } from "./data";
-import { startInquirerProcess } from "../../utils/inquirer-process";
+import { CleanIconsConfigType } from "./data";
 import { GlobOptionsWithFileTypesFalse, globSync } from "glob";
 import SVGFixer from "oslllo-svg-fixer";
 import { error } from "console";
 import { existsSync } from "node:fs";
 import { mkdirSync } from "fs";
-import { startConfigProcess } from "../../utils/config-process";
-import {CI_COMMAND} from "../../data";
 
-export const cleanIconAction = async (passedConfig: CleanIconsConfigType) => {
-  let config = await startConfigProcess(CI_COMMAND, passedConfig);
-
-  config = await startInquirerProcess<CleanIconsConfigType>(
-    config,
-    cleanIconsOptions,
-  );
-
+export const cleanIcons = async (config: CleanIconsConfigType) => {
   const { src, ignoreGlobs, traceResolution, debug, dry, out } = config;
 
   const paths = `${src}/**/*.svg`;

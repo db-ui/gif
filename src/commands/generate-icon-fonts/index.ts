@@ -1,13 +1,65 @@
-import { GifConfigType, gifOptions } from "./data";
-import { startInquirerProcess } from "../../utils/inquirer-process";
-import generateIconFonts from "./utils";
-import { startConfigProcess } from "../../utils/config-process";
-import { GIF_COMMAND } from "../../data";
+/* eslint-disable no-await-in-loop */
 
-export const gifAction = async (gifConfig: GifConfigType): Promise<unknown> => {
-  let config = await startConfigProcess(GIF_COMMAND, gifConfig);
+import FSE from "fs-extra";
 
-  config = await startInquirerProcess<GifConfigType>(config, gifOptions);
+import { log } from "console";
+import { GifConfigType } from "./data";
+import gatherIcons from "./utils/gather-icons";
+import { debugLog } from "../../utils";
+import svgToFont from "./utils/svg-to-font";
 
-  return generateIconFonts(config);
+export const generateIconFonts = async (
+  values: GifConfigType,
+): Promise<unknown> => {
+  const { src, dry, debug = false, overwriteSources = false } = values;
+  const dist = `${src}/fonts`;
+  const temporaryDirectory = `${src}/tmp`;
+
+  if (dry) {
+    log("values:", values);
+    return gatherIcons(temporaryDirectory, values);
+  } else {
+    if (FSE.existsSync(temporaryDirectory)) {
+      FSE.removeSync(temporaryDirectory);
+    }
+
+    if (FSE.existsSync(dist)) {
+      FSE.removeSync(dist);
+    }
+
+    debugLog(debug, "---Start gathering icon---");
+    const iconPaths = gatherIcons(temporaryDirectory, values);
+
+    debugLog(debug, "---Start svg to font ---");
+    const allTemporaryDirectories = FSE.readdirSync(temporaryDirectory);
+    for (const directory of allTemporaryDirectories) {
+      const subDist = `${dist}/${directory}`;
+      const subTemporaryDir = `${temporaryDirectory}/${directory}`;
+      debugLog(debug, `svgToFont for ${subTemporaryDir}`);
+      await svgToFont(subTemporaryDir, subDist, values);
+
+      FSE.removeSync(`${subDist}/symbol.html`);
+      FSE.removeSync(`${subDist}/unicode.html`);
+    }
+
+    if (overwriteSources && iconPaths) {
+      const tempAllDir = `${temporaryDirectory}/all`;
+      iconPaths.forEach((svgPath) => {
+        const paths = svgPath.split("/");
+        const filename: string = paths.at(-1) || "";
+        const tmpFile = `${tempAllDir}/${filename}`;
+        if (FSE.existsSync(`${tempAllDir}/${filename}`)) {
+          FSE.copySync(tmpFile, svgPath, {
+            overwrite: true,
+          });
+        }
+      });
+    }
+
+    if (!debug) {
+      FSE.removeSync(temporaryDirectory);
+    }
+  }
+
+  return true;
 };

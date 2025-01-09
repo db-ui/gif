@@ -1,0 +1,10 @@
+{
+  "name": "hygen",
+  "type": "commonjs",
+  "scripts": {
+    "generate": "hygen command new"
+  },
+  "devDependencies": {
+    "hygen": "6.2.11"
+  }
+}

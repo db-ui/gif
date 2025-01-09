@@ -10,7 +10,7 @@ Here is an example for a JS file `index.js`:
 
 ```js
 // index.js
-import generateIconFonts from "@db-ux/icon-font-tools/dist/commands/generate-icon-fonts/utils";
+import { generateIconFonts } from "@db-ux/icon-font-tools/dist/commands/generate-icon-fonts";
 
 void generateIconFonts({
   fontName,
