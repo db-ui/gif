@@ -1,5 +1,5 @@
 {
-  "name": "@db-ui/icon-font-tools",
+  "name": "@db-ux/icon-font-tools",
   "version": "0.0.0",
   "description": "A toolset for generating or manipulating icon fonts from SVG files.",
   "type": "module",
@@ -9,7 +9,7 @@
   },
   "license": "Apache-2.0",
   "bin": {
-    "@db-ui/icon-font-tools": "dist/index.js"
+    "@db-ux/icon-font-tools": "dist/index.js"
   },
   "main": "dist/index.js",
   "files": [

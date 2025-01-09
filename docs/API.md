@@ -1,4 +1,4 @@
-# API - @db-ui/icon-font-tools
+# API - @db-ux/icon-font-tools
 
 CLI for generating or manipulating icon fonts from SVG files.
 

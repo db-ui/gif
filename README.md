@@ -11,7 +11,7 @@ To check the complete CLI API goto [API](./docs/API.md).
 For icon font generation each icon should be a single path. To clean up your icons run:
 
 ```shell
-npx @db-ui/icon-font-tools clean-icons --src ./my-path-to/icons
+npx @db-ux/icon-font-tools clean-icons --src ./my-path-to/icons
 ```
 
 We use [svg-fixer](https://github.com/oslllo/svg-fixer) to clean up the icons. This will slightly increase the file size but ensures that the icons are displayed correctly.
@@ -21,7 +21,7 @@ We use [svg-fixer](https://github.com/oslllo/svg-fixer) to clean up the icons. T
 For this run:
 
 ```shell
-npx @db-ui/icon-font-tools generate-icon-fonts --src ./my-path-to/icons --fontName my-name
+npx @db-ux/icon-font-tools generate-icon-fonts --src ./my-path-to/icons --fontName my-name
 ```
 
 We search for all `**/*.svg` files inside the `--src` directory and create a new icon font with the provided name. You can preview all generated icons here: `./my-path-to/icons/fonts/all/index.html`.
@@ -31,7 +31,7 @@ We search for all `**/*.svg` files inside the `--src` directory and create a new
 For more information run:
 
 ```shell
-npx @db-ui/icon-font-tools --help
+npx @db-ux/icon-font-tools --help
 ```
 
 ### How to use
