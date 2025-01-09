@@ -18,6 +18,16 @@ export type IgnoreGlobsConfigType = {
   ignoreGlobs?: string[];
 };
 
+export type ConfigType = {
+  config?: string;
+};
+
+export const configOption: ProgramOptionsType = {
+  short: "c",
+  name: "config",
+  description: "Path to configuration file",
+};
+
 export const dryRunOption: ProgramOptionsType = {
   name: "dry",
   description: "Do a dry run with this command - prints/returns output",
