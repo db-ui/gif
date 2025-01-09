@@ -3,7 +3,7 @@ import { gifAction } from "./commands/generate-icon-fonts";
 import {cleanIconsOptions} from "./commands/clean-icons/data";
 import {cleanIconAction} from "./commands/clean-icons";
 
-export const programName = "@db-ui/icon-font-tools";
+export const programName = "@db-ux/icon-font-tools";
 export const programDescription =
   "CLI for generating or manipulating icon fonts from SVG files.";
 
