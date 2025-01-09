@@ -34,6 +34,9 @@ export const srcOption: ProgramOptionsType = {
   name: "src",
   description: "Src folder with all svgs",
   required: true,
+  inquirer: {
+    input: { message: "What is the source folder with all the svgs?" },
+  },
 };
 
 export const ignoreGlobsOption: ProgramOptionsType = {

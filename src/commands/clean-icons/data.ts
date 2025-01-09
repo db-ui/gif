@@ -7,7 +7,6 @@ import {
   IgnoreGlobsConfigType,
   ignoreGlobsOption,
   OutConfigType,
-  outOption,
   SrcConfigType,
   srcOption,
 } from "../../utils/shared";
@@ -25,7 +24,6 @@ export const cleanIconsOptions: ProgramOptionsType[] = [
     name: "traceResolution",
     description: "Change the default resolution of the trace",
     defaultValue: "600",
-    required: false,
   },
   {
     name: "out",
