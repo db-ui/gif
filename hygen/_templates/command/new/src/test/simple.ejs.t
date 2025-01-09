@@ -1,9 +1,9 @@
 ---
 force: true
-to: ../test/<%= name %>/simple.ts
+to: ../test/<%= name %>/simple.test.ts
 ---
 import { describe, expect, test } from "vitest";
-import { cleanIconAction } from "../../../src/commands/<%= name %>/action";
+import { <%= h.changeCase.camel(name) %>Action } from "../../src/commands/<%= name %>/action";
 
 describe("<%= name %>", () => {
   test("check if it works", async () => {
@@ -13,4 +13,3 @@ describe("<%= name %>", () => {
     expect(result).toBeTruthy();
   });
 });
-

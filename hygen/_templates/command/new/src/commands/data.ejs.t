@@ -22,7 +22,3 @@ export const <%= h.changeCase.camel(name) %>Options: ProgramOptionsType[] = [
   debugOption,
   configOption,
 ];
-
-
-
-
