@@ -69,8 +69,8 @@ export const gifOptions: ProgramOptionsType[] = [
     },
   },
   {
-    name: "o",
-    short: "ows",
+    name: "overwriteSources",
+    short: "o",
     description: "Overwrite all svgs inside src directory",
     defaultValue: false,
   },
