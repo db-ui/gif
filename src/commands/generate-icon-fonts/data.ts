@@ -41,7 +41,7 @@ export type GifConfigType = {
 
 export const gifOptions: ProgramOptionsType[] = [
   {
-    short: "var",
+    short: "v",
     name: "variants",
     description:
       'Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons.',
@@ -49,7 +49,7 @@ export const gifOptions: ProgramOptionsType[] = [
     defaultValue: [],
   },
   {
-    short: "ws",
+    short: "w",
     name: "withSizes",
     description: "Splits the font into different sizes",
     required: false,
@@ -60,7 +60,7 @@ export const gifOptions: ProgramOptionsType[] = [
     description: "Prefix of icons to delete for icons",
   },
   {
-    short: "fn",
+    short: "f",
     name: "fontName",
     description: "The name of your font",
     required: true,
@@ -69,7 +69,7 @@ export const gifOptions: ProgramOptionsType[] = [
     },
   },
   {
-    name: "overwriteSources",
+    name: "o",
     short: "ows",
     description: "Overwrite all svgs inside src directory",
     defaultValue: false,

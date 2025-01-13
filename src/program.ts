@@ -15,11 +15,8 @@ export const getProgram = (name: string, description: string) => {
     if (command.options) {
       for (const option of command.options) {
         const short =
-          (option.short &&
-            (option.short?.startsWith("-")
-              ? option.short
-              : `-${option.short}`)) ||
-          `-${option.name.charAt(0)}`;
+          option.short &&
+          (option.short?.startsWith("-") ? option.short : `-${option.short}`);
 
         const isBoolean = typeof option.defaultValue == "boolean";
         const pre = option.array

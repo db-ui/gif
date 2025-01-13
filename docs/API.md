@@ -9,15 +9,15 @@ Clean svgs for icon fonts to work
 > You can use `clean-icons.json` as a config file. 
   By default it tries to search for the configuration otherwise use a correct path by passing `--config=./clean-icons.json`.
 
-| long                |   short  | description                                                                                         | required | defaultValue |
-| :------------------ | :------: | :-------------------------------------------------------------------------------------------------- | :------: | :----------- |
-| `--src`             |   `-s`   | Src folder with all svgs                                                                            |    `✅`   |              |
-| `--traceResolution` |   `-t`   | Change the default resolution of the trace                                                          |    `❌`   | `"600"`      |
-| `--out`             |   `-o`   | Relative path where the files should be written to. Empty string will overwrite the original files. |    `❌`   |              |
-| `--dry`             |   `-d`   | Do a dry run with this command - prints/returns output                                              |    `❌`   |              |
-| `--ignoreGlobs`     |   `-ig`  | Path icon glob to exclude from the fonts                                                            |    `❌`   | `[]`         |
-| `--debug`           | `-debug` | Extra logging                                                                                       |    `❌`   |              |
-| `--config`          |   `-c`   | Path to configuration file                                                                          |    `❌`   |              |
+| long                |    short    | description                                                                                         | required | defaultValue |
+| :------------------ | :---------: | :-------------------------------------------------------------------------------------------------- | :------: | :----------- |
+| `--src`             |     `-s`    | Src folder with all svgs                                                                            |    `✅`   |              |
+| `--traceResolution` |     `-r`    | Change the default resolution of the trace                                                          |    `❌`   | `"600"`      |
+| `--out`             |     `-o`    | Relative path where the files should be written to. Empty string will overwrite the original files. |    `❌`   |              |
+| `--dry`             |     `-d`    | Do a dry run with this command - prints/returns output                                              |    `❌`   |              |
+| `--ignoreGlobs`     |     `-i`    | Path icon glob to exclude from the fonts                                                            |    `❌`   | `[]`         |
+| `--debug`           | `undefined` | Extra logging                                                                                       |    `❌`   |              |
+| `--config`          |     `-c`    | Path to configuration file                                                                          |    `❌`   |              |
 
 ## generate-icon-fonts
 
@@ -26,16 +26,34 @@ Generate icon fonts from SVG files
 > You can use `generate-icon-fonts.json` as a config file. 
   By default it tries to search for the configuration otherwise use a correct path by passing `--config=./generate-icon-fonts.json`.
 
-| long                 |   short  | description                                                                           | required | defaultValue |
-| :------------------- | :------: | :------------------------------------------------------------------------------------ | :------: | :----------- |
-| `--fontName`         |   `-fn`  | The name of your font                                                                 |    `✅`   |              |
-| `--src`              |   `-s`   | Src folder with all svgs                                                              |    `✅`   |              |
-| `--variants`         |  `-var`  | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons. |    `❌`   | `[]`         |
-| `--withSizes`        |   `-ws`  | Splits the font into different sizes                                                  |    `❌`   |              |
-| `--prefix`           |   `-p`   | Prefix of icons to delete for icons                                                   |    `❌`   |              |
-| `--overwriteSources` |  `-ows`  | Overwrite all svgs inside src directory                                               |    `❌`   |              |
-| `--dry`              |   `-d`   | Do a dry run with this command - prints/returns output                                |    `❌`   |              |
-| `--ignoreGlobs`      |   `-ig`  | Path icon glob to exclude from the fonts                                              |    `❌`   | `[]`         |
-| `--debug`            | `-debug` | Extra logging                                                                         |    `❌`   |              |
-| `--config`           |   `-c`   | Path to configuration file                                                            |    `❌`   |              |
+| long            |    short    | description                                                                           | required | defaultValue |
+| :-------------- | :---------: | :------------------------------------------------------------------------------------ | :------: | :----------- |
+| `--fontName`    |     `-f`    | The name of your font                                                                 |    `✅`   |              |
+| `--src`         |     `-s`    | Src folder with all svgs                                                              |    `✅`   |              |
+| `--variants`    |     `-v`    | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons. |    `❌`   | `[]`         |
+| `--withSizes`   |     `-w`    | Splits the font into different sizes                                                  |    `❌`   |              |
+| `--prefix`      |     `-p`    | Prefix of icons to delete for icons                                                   |    `❌`   |              |
+| `--o`           |    `-ows`   | Overwrite all svgs inside src directory                                               |    `❌`   |              |
+| `--dry`         |     `-d`    | Do a dry run with this command - prints/returns output                                |    `❌`   |              |
+| `--ignoreGlobs` |     `-i`    | Path icon glob to exclude from the fonts                                              |    `❌`   | `[]`         |
+| `--debug`       | `undefined` | Extra logging                                                                         |    `❌`   |              |
+| `--config`      |     `-c`    | Path to configuration file                                                            |    `❌`   |              |
+
+## icon-subset
+
+Creates new icon font by passing only needed icon literals. Requires https://github.com/fonttools/fonttools to be installed.
+
+> You can use `icon-subset.json` as a config file. 
+  By default it tries to search for the configuration otherwise use a correct path by passing `--config=./icon-subset.json`.
+
+| long          |    short    | description                                                                    | required | defaultValue |
+| :------------ | :---------: | :----------------------------------------------------------------------------- | :------: | :----------- |
+| `--src`       |     `-s`    | Src folder with all woff2 files                                                |    `✅`   |              |
+| `--safeList`  |     `-l`    | Includes only icons from provided list. Priority over 'blockList'.             |    `❌`   |              |
+| `--blockList` |     `-b`    | Excludes all icons from provided list. Can't be used together with 'safeList'. |    `❌`   |              |
+| `--overwrite` |     `-w`    | If the source file should be overwritten. Disables 'out' option.               |    `❌`   | `true`       |
+| `--out`       |     `-o`    | Relative path where the file should be written                                 |    `❌`   | `"."`        |
+| `--dry`       |     `-d`    | Do a dry run with this command - prints/returns output                         |    `❌`   |              |
+| `--debug`     | `undefined` | Extra logging                                                                  |    `❌`   |              |
+| `--config`    |     `-c`    | Path to configuration file                                                     |    `❌`   |              |
 

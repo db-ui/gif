@@ -1,6 +1,8 @@
 {
   "name": "test",
   "scripts": {
+    "cli:icon-subset:help": "tsx ../src/cli.ts icon-subset --help",
+    "cli:icon-subset": "tsx ../src/cli.ts icon-subset --src=. --dry",
     "cli:help": "tsx ../src/cli.ts --help",
     "cli:generate-icon-fonts:help": "tsx ../src/cli.ts generate-icon-fonts --help",
     "cli:generate-icon-fonts": "tsx ../src/cli.ts generate-icon-fonts --dry",
