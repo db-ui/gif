@@ -1,7 +1,7 @@
 import { promisify } from "node:util";
 import { exec } from "child_process";
 import { IconSubsetFileMapping } from "../data";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 
 const execAsync = promisify(exec);
 
