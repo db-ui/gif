@@ -1,6 +1,7 @@
 import { ProgramOptionsType } from "../../data";
 import {
-  configOption, ConfigType,
+  configOption,
+  ConfigType,
   DebugConfigType,
   debugOption,
   DryConfigType,
@@ -18,7 +19,8 @@ export type CleanIconsConfigType = {
   SrcConfigType &
   IgnoreGlobsConfigType &
   DebugConfigType &
-  OutConfigType & ConfigType;
+  OutConfigType &
+  ConfigType;
 
 export const cleanIconsOptions: ProgramOptionsType[] = [
   {
