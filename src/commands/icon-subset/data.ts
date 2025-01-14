@@ -56,7 +56,7 @@ export const iconSubsetOptions: ProgramOptionsType[] = [
   {
     short: "s",
     name: "src",
-    description: "Src folder with all woff2 files",
+    description: "Source folder with all woff2 files",
   },
   {
     short: "f",
