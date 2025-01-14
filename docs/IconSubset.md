@@ -44,7 +44,7 @@ void iconSubset({
 Example:
 
 ```shell
-npx @db-ux/icon-font-tools icon-subset --src ./my-path-to/icons -l airplane -l bell
+npx @db-ux/icon-font-tools icon-subset --src ./my-path-to/icons --safeList airplane --safeList bell
 ```
 
 For more information run:
