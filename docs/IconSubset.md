@@ -72,8 +72,7 @@ jobs:
 
       - name: ⏬ Install fonttools
         run: |
-          pip3 install fonttools
-          pip3 install brotli
+          pip3 install fonttools brotli
           fonttools --help
 
       - name: 🏃🏃‍➡️ Run Icon subset
