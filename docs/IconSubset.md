@@ -84,6 +84,10 @@ jobs:
 
 ### GitLab CI
 
+If you run on a public GitLab instance you might want to use the [Example job](#example-job):
+
+#### Example job
+
 ```yaml
 stages:
   - post_build
@@ -92,6 +96,29 @@ post_build:
   stage: post_build
   image: nikolaik/python-nodejs:latest
   before_script:
+    - pip3 install fonttools brotli
+    - fonttools --help
+  script:
+    - npx @db-ux/icon-font-tools icon-subset
+  artifacts:
+    paths:
+      - dist # Your dist/build folder
+```
+
+#### Private instance
+
+```yaml
+stages:
+  - post_build
+
+post_build:
+  stage: post_build
+  image: nikolaik/python-nodejs:latest
+  variables:
+    PIP_INDEX_URL: https://my-private-registry.com/pip # Change this to your private registry e.g. JFrog Artifactory etc.
+    PIP_DISABLE_PIP_VERSION_CHECK: true
+  before_script:
+    - export PATH="$PATH:/custom-runner/bin" # If you have a custom runner, you might need to change this as well to use fonttools
     - pip3 install fonttools brotli
     - fonttools --help
   script:
