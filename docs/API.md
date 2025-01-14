@@ -51,7 +51,7 @@ Creates new icon font (woff2) by passing a safelist/blocklist with icon literals
 | `--safeList`    |  `-l` | Includes only icons from provided list. Priority over 'blockList'.             |    `❌`   |              |
 | `--blockList`   |  `-b` | Excludes all icons from provided list. Can't be used together with 'safeList'. |    `❌`   |              |
 | `--overwrite`   |  `-w` | If the source file should be overwritten. Disables 'out' option.               |    `❌`   | `true`       |
-| `--src`         |  `-s` | Src folder with all woff2 files                                                |    `❌`   |              |
+| `--src`         |  `-s` | Source folder with all woff2 files                                             |    `❌`   |              |
 | `--filePaths`   |  `-f` | File paths to woff2 file which should be subsetted.                            |    `❌`   |              |
 | `--out`         |  `-o` | Relative path where the file should be written                                 |    `❌`   | `"."`        |
 | `--dry`         |  `-d` | Do a dry run with this command - prints/returns output                         |    `❌`   |              |
