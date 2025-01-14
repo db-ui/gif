@@ -41,7 +41,7 @@ Generate icon fonts from SVG files
 
 ## icon-subset
 
-Creates new icon font (woff2) by passing a safelist/blocklist with icon literals. Requires https://github.com/fonttools/fonttools to be installed.
+Creates new icon font (woff2) by passing a safelist/blocklist with icon literals. Requires <https://github.com/fonttools/fonttools> to be installed.
 
 > You can use `icon-subset.json` as a config file.
 > By default it tries to search for the configuration otherwise use a correct path by passing `--config=./icon-subset.json`.
