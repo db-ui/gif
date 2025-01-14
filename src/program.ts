@@ -1,5 +1,5 @@
 import { Command, program } from "commander";
-import { commands } from "./data";
+import { commands } from "./data.js";
 
 export const getProgram = (name: string, description: string) => {
   const mProgram = program.name(name).description(description);

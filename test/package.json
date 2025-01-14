@@ -1,5 +1,6 @@
 {
   "name": "test",
+  "type": "module",
   "scripts": {
     "cli:icon-subset:help": "tsx ../src/cli.ts icon-subset --help",
     "cli:icon-subset": "tsx ../src/cli.ts icon-subset --src=. --dry",

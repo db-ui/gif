@@ -1,4 +1,4 @@
-import { ProgramOptionsType } from "../data";
+import { ProgramOptionsType } from "../data.js";
 import { input } from "@inquirer/prompts";
 
 export const startInquirerProcess = async <T>(

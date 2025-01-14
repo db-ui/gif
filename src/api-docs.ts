@@ -1,8 +1,7 @@
-import { getProgram } from "./program";
-import { programDescription, programName } from "./data";
+import { getProgram } from "./program.js";
+import { programDescription, programName } from "./data.js";
 import { markdownTable } from "markdown-table";
-import { writeFileSync } from "node:fs";
-import FSE from "fs-extra";
+import { existsSync, writeFileSync, mkdirSync } from "node:fs";
 
 const docsDirectory = "./docs";
 
@@ -52,8 +51,8 @@ export const generateApiDocs = (name: string, programDescription: string) => {
     result += `${markdownTable(mTable, { align: ["l", "c", "l", "c", "l"] })}\n\n`;
   }
 
-  if (!FSE.existsSync(docsDirectory)) {
-    FSE.mkdirSync(docsDirectory, { recursive: true });
+  if (!existsSync(docsDirectory)) {
+    mkdirSync(docsDirectory, { recursive: true });
   }
 
   writeFileSync(`${docsDirectory}/API.md`, result);

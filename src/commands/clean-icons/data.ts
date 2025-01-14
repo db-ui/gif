@@ -1,4 +1,4 @@
-import { ProgramOptionsType } from "../../data";
+import { ProgramOptionsType } from "../../data.js";
 import {
   configOption,
   ConfigType,
@@ -6,18 +6,18 @@ import {
   debugOption,
   DryConfigType,
   dryRunOption,
-  IgnoreGlobsConfigType,
-  ignoreGlobsOption,
+  IgnoreConfigType,
+  ignoreOption,
   OutConfigType,
   SrcConfigType,
   srcOption,
-} from "../../utils/shared";
+} from "../../utils/shared.js";
 
 export type CleanIconsConfigType = {
   traceResolution?: string;
 } & DryConfigType &
   SrcConfigType &
-  IgnoreGlobsConfigType &
+  IgnoreConfigType &
   DebugConfigType &
   OutConfigType &
   ConfigType;
@@ -37,7 +37,7 @@ export const cleanIconsOptions: ProgramOptionsType[] = [
   },
   dryRunOption,
   srcOption,
-  ignoreGlobsOption,
+  ignoreOption,
   debugOption,
   configOption,
 ];

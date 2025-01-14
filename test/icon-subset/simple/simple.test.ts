@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { describe, expect, test } from "vitest";
-import { iconSubsetAction } from "../../../src/commands/icon-subset/action";
+import { iconSubsetAction } from "../../../src/commands/icon-subset/action.js";
 
 describe("icon-subset", () => {
   test("check if glob works", async () => {
@@ -17,7 +17,7 @@ describe("icon-subset", () => {
       src: "./test/icon-subset",
       out,
       blockList: ["brand"],
-      ignoreGlobs: ["**/generated/**"],
+      ignore: ["**/generated/**", "**/ignore-*"],
       overwrite: false,
       debug: true,
     });

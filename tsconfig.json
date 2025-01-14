@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "ESNext",
+    "target": "ES6",
+    "module": "NodeNext",
     "declaration": true,
     "outDir": "dist",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 

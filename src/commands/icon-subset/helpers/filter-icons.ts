@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import fs from "node:fs/promises";
+import {readFile, writeFile} from "node:fs/promises";
 
 import * as xml2js from "xml2js";
-import { IconSubsetFileMapping } from "../data";
-import { debugLog } from "../../../utils";
+import { IconSubsetFileMapping } from "../data.js";
+import { debugLog } from "../../../utils/index.js";
 
 const shouldInclude = (
   name: string,
@@ -37,12 +37,12 @@ export const filterIcons = async ({
 }) => {
   for (const { tmp } of iconsFileMapping) {
     try {
-      const data = await fs.readFile(tmp, "utf8");
+      const data = await readFile(tmp, "utf8");
       const builder = new xml2js.Builder();
       const result = await xml2js.parseStringPromise(data);
 
       if (debug) {
-        await fs.writeFile(
+        await writeFile(
           tmp.replace("tmp", "tmp-origin"),
           builder.buildObject(result),
         );
@@ -122,7 +122,7 @@ export const filterIcons = async ({
 
       const xml = builder.buildObject(result);
 
-      await fs.writeFile(tmp, xml);
+      await writeFile(tmp, xml);
     } catch (err) {
       console.error("Error:", err);
     }

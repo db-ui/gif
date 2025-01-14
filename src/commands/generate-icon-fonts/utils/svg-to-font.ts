@@ -1,9 +1,9 @@
 import { fileURLToPath } from "node:url";
-import path from "node:path";
+import { resolve } from "node:path";
 
 import svgtofont from "svgtofont";
 import { log } from "console";
-import { GifConfigType } from "../data";
+import { GifConfigType } from "../data.js";
 
 const svgToFont = async (
   temporaryDirectory: string,
@@ -48,10 +48,10 @@ const svgToFont = async (
       },
       website: {
         index: "font-class",
-        template: path.resolve(generateIconFontsDir, "templates/index.njk"),
+        template: resolve(generateIconFontsDir, "templates/index.njk"),
         links: [{ title: "", url: "" }],
       },
-      styleTemplates: path.resolve(generateIconFontsDir, "styles"),
+      styleTemplates: resolve(generateIconFontsDir, "styles"),
     });
   } catch (error) {
     console.error(error);

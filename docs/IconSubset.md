@@ -31,11 +31,14 @@ Here is an example for a JS file `index.(js|ts)`:
 
 ```js
 // index.(js|ts)
-import { iconSubset } from "@db-ux/icon-font-tools/dist/commands/icon-subset";
+import { iconSubset } from "@db-ux/icon-font-tools";
 
 void iconSubset({
   src: "./my-path-to/icons",
   safeList: ["airplane", "bell"],
+  ignore: {
+    ignored: (p) => p.name.startsWith("NotoSans"),
+  },
 });
 ```
 

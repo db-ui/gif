@@ -1,8 +1,8 @@
-import { CleanIconsConfigType, cleanIconsOptions } from "./data";
-import { startConfigProcess } from "../../utils/config-process";
-import { CI_COMMAND } from "../../data";
-import { startInquirerProcess } from "../../utils/inquirer-process";
-import { cleanIcons } from "./index";
+import { CleanIconsConfigType, cleanIconsOptions } from "./data.js";
+import { startConfigProcess } from "../../utils/config-process.js";
+import { CI_COMMAND } from "../../data.js";
+import { startInquirerProcess } from "../../utils/inquirer-process.js";
+import { cleanIcons } from "./index.js";
 
 export const cleanIconAction = async (passedConfig: CleanIconsConfigType) => {
   let config = await startConfigProcess(CI_COMMAND, passedConfig);

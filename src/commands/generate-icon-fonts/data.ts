@@ -1,4 +1,4 @@
-import { ProgramOptionsType } from "../../data";
+import { ProgramOptionsType } from "../../data.js";
 import {
   configOption,
   ConfigType,
@@ -6,11 +6,11 @@ import {
   debugOption,
   DryConfigType,
   dryRunOption,
-  IgnoreGlobsConfigType,
-  ignoreGlobsOption,
+  IgnoreConfigType,
+  ignoreOption,
   SrcConfigType,
   srcOption,
-} from "../../utils/shared";
+} from "../../utils/shared.js";
 import { Config } from "svgo";
 import { SVGIcons2SVGFontStreamOptions } from "svgicons2svgfont";
 
@@ -35,7 +35,7 @@ export type GifConfigType = {
   svgicons2svgfont?: SVGIcons2SVGFontStreamOptions;
 } & DryConfigType &
   SrcConfigType &
-  IgnoreGlobsConfigType &
+  IgnoreConfigType &
   DebugConfigType &
   ConfigType;
 
@@ -83,7 +83,7 @@ export const gifOptions: ProgramOptionsType[] = [
     },*/
   dryRunOption,
   srcOption,
-  ignoreGlobsOption,
+  ignoreOption,
   debugOption,
   configOption,
 ];

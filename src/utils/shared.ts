@@ -1,4 +1,5 @@
-import { ProgramOptionsType } from "../data";
+import { ProgramOptionsType } from "../data.js";
+import { IgnoreLike } from "glob";
 
 export type OutConfigType = {
   out?: string;
@@ -14,8 +15,8 @@ export type SrcConfigType = {
   src?: string;
 };
 
-export type IgnoreGlobsConfigType = {
-  ignoreGlobs?: string[];
+export type IgnoreConfigType = {
+  ignore?: string | string[] | IgnoreLike;
 };
 
 export type ConfigType = {
@@ -52,10 +53,10 @@ export const srcOption: ProgramOptionsType = {
   },
 };
 
-export const ignoreGlobsOption: ProgramOptionsType = {
+export const ignoreOption: ProgramOptionsType = {
   short: "i",
-  name: "ignoreGlobs",
-  description: "Path icon glob to exclude from the fonts",
+  name: "ignore",
+  description: "Glob or path like to exclude from files",
   array: true,
   defaultValue: [],
 };

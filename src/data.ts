@@ -1,9 +1,9 @@
-import { iconSubsetOptions } from "./commands/icon-subset/data";
-import { iconSubsetAction } from "./commands/icon-subset/action";
-import { gifOptions } from "./commands/generate-icon-fonts/data";
-import { cleanIconsOptions } from "./commands/clean-icons/data";
-import { gifAction } from "./commands/generate-icon-fonts/action";
-import { cleanIconAction } from "./commands/clean-icons/action";
+import { iconSubsetOptions } from "./commands/icon-subset/data.js";
+import { iconSubsetAction } from "./commands/icon-subset/action.js";
+import { gifOptions } from "./commands/generate-icon-fonts/data.js";
+import { cleanIconsOptions } from "./commands/clean-icons/data.js";
+import { gifAction } from "./commands/generate-icon-fonts/action.js";
+import { cleanIconAction } from "./commands/clean-icons/action.js";
 
 export const programName = "@db-ux/icon-font-tools";
 export const programDescription =

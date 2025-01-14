@@ -1,4 +1,4 @@
-import { ProgramOptionsType } from "../../data";
+import { ProgramOptionsType } from "../../data.js";
 import {
   configOption,
   ConfigType,
@@ -6,12 +6,12 @@ import {
   debugOption,
   DryConfigType,
   dryRunOption,
-  IgnoreGlobsConfigType,
-  ignoreGlobsOption,
+  IgnoreConfigType,
+  ignoreOption,
   OutConfigType,
   outOption,
   SrcConfigType,
-} from "../../utils/shared";
+} from "../../utils/shared.js";
 
 export type IconSubsetFileMapping = {
   input: string;
@@ -29,7 +29,7 @@ export type IconSubsetConfigType = {
   ConfigType &
   OutConfigType &
   SrcConfigType &
-  IgnoreGlobsConfigType;
+  IgnoreConfigType;
 
 export const iconSubsetOptions: ProgramOptionsType[] = [
   {
@@ -67,5 +67,5 @@ export const iconSubsetOptions: ProgramOptionsType[] = [
   dryRunOption,
   debugOption,
   configOption,
-  ignoreGlobsOption,
+  ignoreOption,
 ];

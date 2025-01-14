@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import fs from "fs";
-import { gifAction } from "../../../src/commands/generate-icon-fonts/action";
+import { gifAction } from "../../../src/commands/generate-icon-fonts/action.js";
 
 describe("config", () => {
   test("check if glob works", async () => {
