@@ -2,7 +2,7 @@
 
 Remove unused icons from your icon font (`woff2`) to reduce file size.
 
-> **Note:** Requires https://github.com/fonttools/fonttools to be installed. Most of the time you need it in production. In this case look at [CI/CD](#cicd).
+> **Note:** Requires https://github.com/fonttools/fonttools to be installed. Most of the time you need it in production. In this case look at [CI/CD section](#cicd).
 
 ## Requirements - local
 
