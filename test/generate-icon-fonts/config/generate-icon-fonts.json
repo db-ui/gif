@@ -1,6 +1,6 @@
 {
   "fontName": "test",
   "src": "./test/generate-icon-fonts/config",
-  "ignoreGlobs": ["**/ignore/**", "**/tmp/**", "**/fonts/**"],
+  "ignore": ["**/ignore/**", "**/tmp/**", "**/fonts/**"],
   "variants": []
 }

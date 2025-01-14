@@ -3,6 +3,6 @@
   "out": "./test/icon-subset/generated/config",
   "blockList": ["brand"],
   "overwrite": false,
-  "ignoreGlobs": ["**/generated/**"],
+  "ignore": ["**/generated/**", "**/ignore-*"],
   "debug": true
 }

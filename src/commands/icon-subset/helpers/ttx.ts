@@ -1,7 +1,7 @@
 import { promisify } from "node:util";
 import { exec } from "node:child_process";
-import fs from "node:fs/promises";
-import { IconSubsetFileMapping } from "../data";
+import { rm } from "node:fs/promises";
+import { IconSubsetFileMapping } from "../data.js";
 
 const execAsync = promisify(exec);
 
@@ -39,7 +39,7 @@ export const runTTX = async ({
     if (compile) {
       for (const { tmp } of iconsFileMapping) {
         if (!debug) {
-          await fs.rm(tmp);
+          await rm(tmp);
         }
       }
     }

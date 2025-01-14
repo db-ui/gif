@@ -1,9 +1,8 @@
-import FSE from "fs-extra";
-
 import { globSync } from "glob";
 import { log } from "console";
-import { GifConfigType } from "../data";
-import { debugLog } from "../../../utils";
+import { GifConfigType } from "../data.js";
+import { debugLog } from "../../../utils/index.js";
+import { copyFileSync, existsSync, mkdirSync } from "node:fs";
 
 const generalPrefix = "";
 
@@ -32,7 +31,7 @@ const initTemporaryIconFiles = (
       iconName = iconName.replace(`_${size}`, "");
     }
 
-    FSE.copyFileSync(
+    copyFileSync(
       svgPath,
       `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${filename}`,
     );
@@ -54,7 +53,7 @@ const initDefaultFile = (
   variant: string,
 ) => {
   const fileName = getVariantFileName(iconFileName, variant);
-  const defaultFileExists = FSE.existsSync(
+  const defaultFileExists = existsSync(
     `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${fileName}.svg`,
   );
 
@@ -64,8 +63,8 @@ const initDefaultFile = (
       const altSizeFileName = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${iconFileName}_${size}_${variant}.svg`;
 
       for (const name of [sizeFileName, altSizeFileName]) {
-        if (FSE.existsSync(name)) {
-          FSE.copyFileSync(
+        if (existsSync(name)) {
+          copyFileSync(
             name,
             `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${fileName}.svg`,
           );
@@ -92,8 +91,8 @@ const createFallbackComponentSize = (
     const nextSizeFilePath = alt
       ? `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${iconFileName}_${nextSize}_${variant}.svg`
       : `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${fileName}_${nextSize}.svg`;
-    if (FSE.existsSync(nextSizeFilePath)) {
-      FSE.copyFileSync(nextSizeFilePath, path);
+    if (existsSync(nextSizeFilePath)) {
+      copyFileSync(nextSizeFilePath, path);
       return true;
     }
   }
@@ -111,7 +110,7 @@ const initComponentSizes = (
     const requiredFilePath = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${fileName}_${size}.svg`;
     const altRequiredFilePath = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${iconFileName}_${size}_${variant}.svg`;
 
-    if (!FSE.existsSync(requiredFilePath)) {
+    if (!existsSync(requiredFilePath)) {
       const created = createFallbackComponentSize(
         temporaryDirectory,
         iconFileName,
@@ -140,7 +139,7 @@ const gatherIcons = (
   temporaryDirectory: string,
   values: GifConfigType,
 ): string[] | undefined => {
-  const { src, ignoreGlobs, prefix, dry, variants, withSizes, debug } = values;
+  const { src, ignore, prefix, dry, variants, withSizes, debug } = values;
   const paths = `${src}/**/*.svg`;
 
   // We use this to generate all combinations of variants and sizes as fonts
@@ -148,7 +147,7 @@ const gatherIcons = (
   const splitVariantsArray =
     variants && variants.length > 0 ? ["", ...variants] : [""];
 
-  const globPaths = globSync(paths, { ignore: ignoreGlobs }).map((path) =>
+  const globPaths = globSync(paths, { ignore }).map((path) =>
     path.replace(/\\/g, "/"),
   );
 
@@ -157,12 +156,12 @@ const gatherIcons = (
     return globPaths;
   }
 
-  if (!FSE.existsSync(temporaryDirectory)) {
-    FSE.mkdirSync(temporaryDirectory, { recursive: true });
+  if (!existsSync(temporaryDirectory)) {
+    mkdirSync(temporaryDirectory, { recursive: true });
   }
 
-  if (!FSE.existsSync(`${temporaryDirectory}/${allTemporaryDir}`)) {
-    FSE.mkdirSync(`${temporaryDirectory}/${allTemporaryDir}`, {
+  if (!existsSync(`${temporaryDirectory}/${allTemporaryDir}`)) {
+    mkdirSync(`${temporaryDirectory}/${allTemporaryDir}`, {
       recursive: true,
     });
   }
@@ -197,20 +196,20 @@ const gatherIcons = (
 
         const newFileName = `${temporaryDirectory}/${directory}/${generalPrefix}${iconFileName}.svg`;
 
-        if (!FSE.existsSync(`${temporaryDirectory}/${directory}`)) {
-          FSE.mkdirSync(`${temporaryDirectory}/${directory}`, {
+        if (!existsSync(`${temporaryDirectory}/${directory}`)) {
+          mkdirSync(`${temporaryDirectory}/${directory}`, {
             recursive: true,
           });
         }
 
-        if (FSE.existsSync(sizeFilePath)) {
-          FSE.copyFileSync(sizeFilePath, newFileName);
-        } else if (FSE.existsSync(defaultFilePath)) {
-          FSE.copyFileSync(defaultFilePath, newFileName);
-        } else if (FSE.existsSync(fallbackSizeFilePath)) {
-          FSE.copyFileSync(fallbackSizeFilePath, newFileName);
+        if (existsSync(sizeFilePath)) {
+          copyFileSync(sizeFilePath, newFileName);
+        } else if (existsSync(defaultFilePath)) {
+          copyFileSync(defaultFilePath, newFileName);
+        } else if (existsSync(fallbackSizeFilePath)) {
+          copyFileSync(fallbackSizeFilePath, newFileName);
         } else {
-          FSE.copyFileSync(fallbackFilePath, newFileName);
+          copyFileSync(fallbackFilePath, newFileName);
         }
       }
     }

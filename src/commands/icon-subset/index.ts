@@ -1,9 +1,9 @@
-import path from "node:path";
+import { basename, dirname, extname } from "node:path";
 import { existsSync } from "node:fs";
 import { mkdirSync } from "node:fs";
-import { IconSubsetConfigType, IconSubsetFileMapping } from "./data";
-import { runTTX } from "./helpers/ttx";
-import { filterIcons } from "./helpers/filter-icons";
+import { IconSubsetConfigType, IconSubsetFileMapping } from "./data.js";
+import { runTTX } from "./helpers/ttx.js";
+import { filterIcons } from "./helpers/filter-icons.js";
 import { glob } from "glob";
 
 export const iconSubset = async (
@@ -18,7 +18,7 @@ export const iconSubset = async (
     safeList,
     out,
     overwrite = true,
-    ignoreGlobs = [],
+    ignore = [],
   } = config;
 
   if (!filePaths && !src) {
@@ -29,29 +29,31 @@ export const iconSubset = async (
     // TODO: Shall we allow other file endings as well?
     const files = await glob(
       filePaths ? filePaths : src ? `${src.replace(/\/$/, "")}/**/*.woff2` : "",
-      { ignore: ignoreGlobs },
+      { ignore },
     );
+    console.log(`Found ${files.length} files.`);
+    const iconsFileMapping: IconSubsetFileMapping[] = files.map(
+      (file) => {
+        const cleanFile = file.replaceAll("\\", "/");
+        const fileName = basename(cleanFile);
+        const dir = dirname(cleanFile);
+        const ext = extname(cleanFile);
+        const tempFileName = fileName.replace(ext, ".tmp.ttx");
+        const cleanOut = out ? out.replaceAll("\\", "/") : "";
+        let outputFilePath = cleanFile;
+        if (!overwrite) {
+          outputFilePath = out
+            ? `${cleanOut}/${fileName}`
+            : `${dir}/${fileName.replace(".", "-subset.")}`;
+        }
 
-    const iconsFileMapping: IconSubsetFileMapping[] = files.map((file) => {
-      const cleanFile = file.replaceAll("\\", "/");
-      const fileName = path.basename(cleanFile);
-      const dirname = path.dirname(cleanFile);
-      const extname = path.extname(cleanFile);
-      const tempFileName = fileName.replace(extname, ".tmp.ttx");
-      const cleanOut = out ? out.replaceAll("\\", "/") : "";
-      let outputFilePath = cleanFile;
-      if (!overwrite) {
-        outputFilePath = out
-          ? `${cleanOut}/${fileName}`
-          : `${dirname}/${fileName.replace(".", "-subset.")}`;
-      }
-
-      return {
-        input: cleanFile,
-        tmp: out ? `${cleanOut}/${tempFileName}` : `${dirname}/${tempFileName}`,
-        output: outputFilePath,
-      };
-    });
+        return {
+          input: cleanFile,
+          tmp: out ? `${cleanOut}/${tempFileName}` : `${dir}/${tempFileName}`,
+          output: outputFilePath,
+        };
+      },
+    );
 
     if (dry) {
       console.log(iconsFileMapping, { blockList, safeList });

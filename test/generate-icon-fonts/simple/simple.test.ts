@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import fs from "fs";
-import { generateIconFonts } from "../../../src/commands/generate-icon-fonts";
+import { generateIconFonts } from "../../../src/commands/generate-icon-fonts/index";
 
 describe("simple", () => {
   test("check if glob works", async () => {
@@ -8,7 +8,7 @@ describe("simple", () => {
       fontName: "test",
       dry: true,
       src: "./test/generate-icon-fonts/simple",
-      ignoreGlobs: ["**/ignore/**", "**/tmp/**", "**/fonts/**"],
+      ignore: ["**/ignore/**", "**/tmp/**", "**/fonts/**"],
       variants: ["test"],
     });
     expect(paths).toHaveLength(1);
@@ -18,13 +18,17 @@ describe("simple", () => {
     await generateIconFonts({
       fontName: "test",
       src: "./test/generate-icon-fonts/simple",
-      ignoreGlobs: ["**/ignore/**", "**/tmp/**"],
-      variants: []
+      ignore: ["**/ignore/**", "**/tmp/**"],
+      variants: [],
     });
 
     const infoJson = JSON.parse(
-      fs.readFileSync("./test/generate-icon-fonts/simple/fonts/all/info.json").toString("utf-8"),
+      fs
+        .readFileSync("./test/generate-icon-fonts/simple/fonts/all/info.json")
+        .toString("utf-8"),
     );
-    expect(infoJson.brand.unicode).toBe("&#98;&amp;#114;&amp;#97;&amp;#110;&amp;#100;");
+    expect(infoJson.brand.unicode).toBe(
+      "&#98;&amp;#114;&amp;#97;&amp;#110;&amp;#100;",
+    );
   });
 });

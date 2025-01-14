@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { startProgram } from "./program";
-import {programDescription, programName} from "./data";
+import { startProgram } from "./program.js";
+import {programDescription, programName} from "./data.js";
 
 startProgram(programName, programDescription);

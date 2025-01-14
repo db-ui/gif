@@ -1,4 +1,4 @@
-import { CleanIconsConfigType } from "./data";
+import { CleanIconsConfigType } from "./data.js";
 import { GlobOptionsWithFileTypesFalse, globSync } from "glob";
 import SVGFixer from "oslllo-svg-fixer";
 import { error } from "console";
@@ -6,12 +6,12 @@ import { existsSync } from "node:fs";
 import { mkdirSync } from "fs";
 
 export const cleanIcons = async (config: CleanIconsConfigType) => {
-  const { src, ignoreGlobs, traceResolution, debug, dry, out } = config;
+  const { src, ignore, traceResolution, debug, dry, out } = config;
 
   const paths = `${src}/**/*.svg`;
   const options: GlobOptionsWithFileTypesFalse = {};
-  if (ignoreGlobs) {
-    options.ignore = ignoreGlobs;
+  if (ignore) {
+    options.ignore = ignore;
   }
 
   const globPaths = globSync(paths, options)

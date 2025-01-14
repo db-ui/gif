@@ -10,12 +10,12 @@ Here is an example for a JS file `index.js`:
 
 ```js
 // index.js
-import { generateIconFonts } from "@db-ux/icon-font-tools/dist/commands/generate-icon-fonts";
+import { generateIconFonts } from "@db-ux/icon-font-tools";
 
 void generateIconFonts({
   fontName,
   src: "./icons",
-  ignoreGlobs: ["**/node_modules/**"],
+  ignore: ["**/node_modules/**"],
   variants: ["filled"],
   withSizes: true,
 });

@@ -1,12 +1,10 @@
 /* eslint-disable no-await-in-loop */
-
-import FSE from "fs-extra";
-
 import { log } from "console";
-import { GifConfigType } from "./data";
-import gatherIcons from "./utils/gather-icons";
-import { debugLog } from "../../utils";
-import svgToFont from "./utils/svg-to-font";
+import { GifConfigType } from "./data.js";
+import gatherIcons from "./utils/gather-icons.js";
+import { debugLog } from "../../utils/index.js";
+import svgToFont from "./utils/svg-to-font.js";
+import { copyFileSync, existsSync, readdirSync, rmSync } from "node:fs";
 
 export const generateIconFonts = async (
   values: GifConfigType,
@@ -19,27 +17,27 @@ export const generateIconFonts = async (
     log("values:", values);
     return gatherIcons(temporaryDirectory, values);
   } else {
-    if (FSE.existsSync(temporaryDirectory)) {
-      FSE.removeSync(temporaryDirectory);
+    if (existsSync(temporaryDirectory)) {
+      rmSync(temporaryDirectory, { recursive: true });
     }
 
-    if (FSE.existsSync(dist)) {
-      FSE.removeSync(dist);
+    if (existsSync(dist)) {
+      rmSync(dist, { recursive: true });
     }
 
     debugLog(debug, "---Start gathering icon---");
     const iconPaths = gatherIcons(temporaryDirectory, values);
 
     debugLog(debug, "---Start svg to font ---");
-    const allTemporaryDirectories = FSE.readdirSync(temporaryDirectory);
+    const allTemporaryDirectories = readdirSync(temporaryDirectory);
     for (const directory of allTemporaryDirectories) {
       const subDist = `${dist}/${directory}`;
       const subTemporaryDir = `${temporaryDirectory}/${directory}`;
       debugLog(debug, `svgToFont for ${subTemporaryDir}`);
       await svgToFont(subTemporaryDir, subDist, values);
 
-      FSE.removeSync(`${subDist}/symbol.html`);
-      FSE.removeSync(`${subDist}/unicode.html`);
+      rmSync(`${subDist}/symbol.html`);
+      rmSync(`${subDist}/unicode.html`);
     }
 
     if (overwriteSources && iconPaths) {
@@ -48,16 +46,14 @@ export const generateIconFonts = async (
         const paths = svgPath.split("/");
         const filename: string = paths.at(-1) || "";
         const tmpFile = `${tempAllDir}/${filename}`;
-        if (FSE.existsSync(`${tempAllDir}/${filename}`)) {
-          FSE.copySync(tmpFile, svgPath, {
-            overwrite: true,
-          });
+        if (existsSync(`${tempAllDir}/${filename}`)) {
+          copyFileSync(tmpFile, svgPath);
         }
       });
     }
 
     if (!debug) {
-      FSE.removeSync(temporaryDirectory);
+      rmSync(temporaryDirectory, { recursive: true });
     }
   }
 
