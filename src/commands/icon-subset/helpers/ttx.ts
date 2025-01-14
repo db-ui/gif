@@ -1,5 +1,5 @@
 import { promisify } from "node:util";
-import { exec } from "child_process";
+import { exec } from "node:child_process";
 import { IconSubsetFileMapping } from "../data";
 import fs from "node:fs/promises";
 
