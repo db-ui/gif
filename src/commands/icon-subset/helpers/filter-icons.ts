@@ -48,7 +48,7 @@ export const filterIcons = async ({
         );
       }
 
-      if (result && result.ttFont) {
+      if (result?.ttFont) {
         const cmap = result.ttFont.cmap?.[0];
         let internalGlyphs: string[] = [];
         if (cmap && cmap.cmap_format_4 && cmap.cmap_format_4.length > 0) {
