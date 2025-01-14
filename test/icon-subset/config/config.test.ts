@@ -1,6 +1,6 @@
+import fs from "node:fs";
 import {describe, expect, test} from "vitest";
 import { iconSubsetAction } from "../../../src/commands/icon-subset/action";
-import fs from "fs";
 
 describe("icon-subset", () => {
   test("check if it works", async () => {
