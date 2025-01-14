@@ -1,10 +1,10 @@
+import path from "node:path";
+import { existsSync } from "node:fs";
+import { mkdirSync } from "node:fs";
 import { IconSubsetConfigType, IconSubsetFileMapping } from "./data";
 import { runTTX } from "./helpers/ttx";
 import { filterIcons } from "./helpers/filter-icons";
 import { glob } from "glob";
-import path from "node:path";
-import { existsSync } from "node:fs";
-import { mkdirSync } from "fs";
 
 export const iconSubset = async (
   config: IconSubsetConfigType,
