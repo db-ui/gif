@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 
 import * as xml2js from "xml2js";
 import { IconSubsetFileMapping } from "../data";
