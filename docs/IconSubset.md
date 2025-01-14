@@ -89,8 +89,7 @@ post_build:
   stage: post_build
   image: nikolaik/python-nodejs:latest
   before_script:
-    - pip3 install fonttools
-    - pip3 install brotli
+    - pip3 install fonttools brotli
     - fonttools --help
   script:
     - npx @db-ux/icon-font-tools icon-subset
