@@ -58,7 +58,7 @@ export const filterIcons = async ({
         }
 
         const glyphOrder = result.ttFont.GlyphOrder?.[0];
-        if (glyphOrder && glyphOrder.GlyphID && glyphOrder.GlyphID.length > 0) {
+        if (glyphOrder?.GlyphID?.length > 0) {
           // Add nodef glyph
           internalGlyphs.push(glyphOrder.GlyphID[0].$.name);
         }
