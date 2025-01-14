@@ -51,7 +51,7 @@ export const filterIcons = async ({
       if (result?.ttFont) {
         const cmap = result.ttFont.cmap?.[0];
         let internalGlyphs: string[] = [];
-        if (cmap && cmap.cmap_format_4 && cmap.cmap_format_4.length > 0) {
+        if (cmap?.cmap_format_4?.length > 0) {
           internalGlyphs = cmap.cmap_format_4[0]["map"].map(
             (entry: any) => entry.$.name,
           );
