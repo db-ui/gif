@@ -12,6 +12,11 @@ jobs:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v4
 
+      - name: ⏬ Install fonttools
+        run: |
+          pip3 install fonttools brotli
+          fonttools --help
+
       - name: 🔄 Init PNPM
         uses: ./.github/actions/pnpm-init
 

@@ -43,7 +43,7 @@ export const generateApiDocs = (name: string, programDescription: string) => {
       .sort((a, b) => (a.required === b.required ? 0 : a.required ? -1 : 1))) {
       mTable.push([
         `\`${long}\``,
-        `\`${short}\``,
+        short && short?.length > 0 ? `\`${short}\`` : "",
         description,
         `\`${getBooleanValue(required)}\``,
         defaultValue ? `\`${JSON.stringify(defaultValue)}\`` : "",

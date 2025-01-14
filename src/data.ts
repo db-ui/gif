@@ -1,3 +1,5 @@
+import { iconSubsetOptions } from "./commands/icon-subset/data";
+import { iconSubsetAction } from "./commands/icon-subset/action";
 import { gifOptions } from "./commands/generate-icon-fonts/data";
 import { cleanIconsOptions } from "./commands/clean-icons/data";
 import { gifAction } from "./commands/generate-icon-fonts/action";
@@ -31,7 +33,17 @@ export type ProgramOptionsType = {
 export const GIF_COMMAND = "generate-icon-fonts";
 export const CI_COMMAND = "clean-icons";
 
+export const ICON_SUBSET_COMMAND = "icon-subset";
+
 export const commands: Command[] = [
+  {
+    name: ICON_SUBSET_COMMAND,
+    description:
+      "Creates new icon font (woff2) by passing a safelist/blocklist with icon literals. " +
+      "Requires https://github.com/fonttools/fonttools to be installed.",
+    options: iconSubsetOptions,
+    action: iconSubsetAction,
+  },
   {
     name: GIF_COMMAND,
     description: "Generate icon fonts from SVG files",

@@ -23,3 +23,4 @@ By default, Cosmiconfig will check the current directory for the following:
 
 - [Clean icons](./docs/CleanIcons.md)
 - [Generate Icon Fonts](./docs/GenerateIconFonts.md)
+- [Icon subset](./docs/IconSubset.md)

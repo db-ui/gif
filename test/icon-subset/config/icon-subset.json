@@ -1,0 +1,8 @@
+{
+  "src": "./test/icon-subset",
+  "out": "./test/icon-subset/generated/config",
+  "blockList": ["brand"],
+  "overwrite": false,
+  "ignoreGlobs": ["**/generated/**"],
+  "debug": true
+}

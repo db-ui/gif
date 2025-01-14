@@ -29,20 +29,23 @@ export const configOption: ProgramOptionsType = {
 };
 
 export const dryRunOption: ProgramOptionsType = {
+  short: "d",
   name: "dry",
   description: "Do a dry run with this command - prints/returns output",
   defaultValue: false,
 };
 
 export const outOption: ProgramOptionsType = {
+  short: "o",
   name: "out",
   description: "Relative path where the file should be written",
   defaultValue: ".",
 };
 
 export const srcOption: ProgramOptionsType = {
+  short: "s",
   name: "src",
-  description: "Src folder with all svgs",
+  description: "Source folder with all svgs",
   required: true,
   inquirer: {
     input: { message: "What is the source folder with all the svgs?" },
@@ -50,7 +53,7 @@ export const srcOption: ProgramOptionsType = {
 };
 
 export const ignoreGlobsOption: ProgramOptionsType = {
-  short: "ig",
+  short: "i",
   name: "ignoreGlobs",
   description: "Path icon glob to exclude from the fonts",
   array: true,
@@ -58,7 +61,6 @@ export const ignoreGlobsOption: ProgramOptionsType = {
 };
 
 export const debugOption: ProgramOptionsType = {
-  short: "debug",
   name: "debug",
   description: "Extra logging",
   defaultValue: false,
