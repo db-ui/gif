@@ -12,4 +12,4 @@ Moreover, you need to duplicate `.env.template` as `.env` and type your own emai
 
 ### Conventions
 
-Please be aware that we have some [code and git commit (message and branch naming) conventions](https://github.com/db-ux/core/blob/main/docs/conventions.adoc), that we ensure with some linting tools.
+Please be aware that we have some [code and git commit (message and branch naming) conventions](https://github.com/db-ux-design-system/core-web/blob/main/docs/conventions.md), that we ensure with some linting tools.
